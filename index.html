@@ -9,6 +9,8 @@
     <body>
 
         <button onclick="getData()">Get Data </button>
+
+        <div id="show"></div>
         <script>
             function getData(){
                 // Assign the request object to a variable
@@ -32,12 +34,23 @@
 
                     // if request is finished , response response is ready and status code 200 => get response
                     if(this.readyState == 4 && this.status == 200){
-                        console.log(this.responseText)
+                        // console.log(this.responseText)
+
+                        // convert response text to JSON Object
+                        var myJSObj = JSON.parse(this.responseText),
+                            myText = '';
+
+                        for(i=0 ; i < myJSObj.length ; i++){
+                            // console.log(myJSObj[i].name);
+                            myText += myJSObj[i].name +"<br>";
+                        }
+
+                        document.getElementById("show").innerHTML = myText;
                     }
                 }
 
                 // XMLHttpRequest.open("Method","URl",Aysnc ,User , Password)
-                myRequest.open("GET" , "https://api.github.com/users/MoEmam203",true);
+                myRequest.open("GET" , "myObj.json",true);
 
                 myRequest.send();
             };
