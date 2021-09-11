@@ -34,25 +34,28 @@
 
                     // if request is finished , response response is ready and status code 200 => get response
                     if(this.readyState == 4 && this.status == 200){
-                        // console.log(this.responseText)
+                        console.log(this.responseText)
 
                         // convert response text to JSON Object
-                        var myJSObj = JSON.parse(this.responseText),
-                            myText = '';
+                        // var myJSObj = JSON.parse(this.responseText),
+                        //     myText = '';
 
-                        for(i=0 ; i < myJSObj.length ; i++){
-                            // console.log(myJSObj[i].name);
-                            myText += myJSObj[i].name +"<br>";
-                        }
+                        // for(i=0 ; i < myJSObj.length ; i++){
+                        //     // console.log(myJSObj[i].name);
+                        //     myText += myJSObj[i].name +"<br>";
+                        // }
 
-                        document.getElementById("show").innerHTML = myText;
+                        // document.getElementById("show").innerHTML = myText;
                     }
                 }
 
                 // XMLHttpRequest.open("Method","URl",Aysnc ,User , Password)
-                myRequest.open("GET" , "myObj.json",true);
 
-                myRequest.send();
+                // myRequest.open("GET" , "auth.php?name=ahmed",true);
+                myRequest.open("POST","auth.php",true);
+                myRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+
+                myRequest.send("name=ahmed");
             };
         </script>
     </body>
