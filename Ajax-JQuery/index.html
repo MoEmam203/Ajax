@@ -10,8 +10,8 @@
 
         <!-- <button data-page="page-one.html">Page One</button>
         <button data-page="page-two.html">Page two</button> -->
-
-        <button>Click to get data</button>
+        <input type="text" name="comment">
+        <button>Comment</button>
         <div id="show"></div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -54,30 +54,31 @@
                         // username : "", // for Auth
                         // password : "", // for Auth
                         method : "POST" , // Request method
-                        url:"../auth.php", // URL , Default the current page
-                        data:{ name:"osama" }, // Data
+                        url:"comments.php", // URL , Default the current page
+                        data:{ comment: $("input").val() }, // Data
                         beforeSend:function(xhr){
-                            console.log(xhr);
+                            // console.log(xhr);
                             console.log("before send")
                         },
                         success : function(data,status,xhr){
                             // Function to run when request success
-                            console.log(data);
-                            console.log(status);
-                            console.log(xhr);
+                            // console.log(data);
+                            // console.log(status);
+                            // console.log(xhr);
                             console.log("When Success")
+                            $("#show").html(data)
                         },
                         error: function(xhr,status,error){
                             // Function to run when request failed
-                            console.log(xhr);
-                            console.log(status);
-                            console.log(error); // Error message (Not Found)
+                            // console.log(xhr);
+                            // console.log(status);
+                            // console.log(error); // Error message (Not Found)
                             console.log("When failed")
                         },
                         complete:function(xhr,status){
                             // function to run when request completed whether success or fail
-                            console.log(xhr);
-                            console.log(status);
+                            // console.log(xhr);
+                            // console.log(status);
                             console.log("When Completed");
                         }
                     })
