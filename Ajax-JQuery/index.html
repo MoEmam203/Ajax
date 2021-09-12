@@ -45,6 +45,14 @@
 
 
                     $.ajax({
+                        // type : "POST", // alias for method on old jquery function
+                        // cache: false, // default true
+                        // async: false, // default true
+                        // dataType : "html", // expected data type from the server => default Intel Guess
+                        // contentType : "", // content type for the request => Default x-www-form-urlencoded
+                        // timeout : 3000, // Timeout for the request to start
+                        // username : "", // for Auth
+                        // password : "", // for Auth
                         method : "POST" , // Request method
                         url:"auth.php", // URL , Default the current page
                         data:{ name:"osama" }, // Data
@@ -59,6 +67,11 @@
                             console.log(xhr);
                             console.log(status);
                             console.log(error); // Error message (Not Found)
+                        },
+                        complete:function(xhr,status){
+                            // function to run when request completed whether success or fail
+                            console.log(xhr);
+                            console.log(status);
                         }
                     })
                 })
