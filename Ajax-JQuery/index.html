@@ -30,11 +30,11 @@
                 //     })
                 
                     // get method
-                    $.get("../auth.php?name=osama", function(data,status,xhr){
-                            console.log(data)
-                            console.log(status)
-                            console.log(xhr)
-                    })
+                    // $.get("../auth.php?name=osama", function(data,status,xhr){
+                    //         console.log(data)
+                    //         console.log(status)
+                    //         console.log(xhr)
+                    // })
                     
                     // post method
                     // $.post("../auth.php" , { name:"osama" },function(data,status,xhr){
@@ -42,6 +42,25 @@
                     //             console.log(status)
                     //             console.log(xhr)
                     // })
+
+
+                    $.ajax({
+                        method : "POST" , // Request method
+                        url:"auth.php", // URL , Default the current page
+                        data:{ name:"osama" }, // Data
+                        success : function(data,status,xhr){
+                            // Function to run when request success
+                            console.log(data);
+                            console.log(status);
+                            console.log(xhr);
+                        },
+                        error: function(xhr,status,error){
+                            // Function to run when request failed
+                            console.log(xhr);
+                            console.log(status);
+                            console.log(error); // Error message (Not Found)
+                        }
+                    })
                 })
             })
         </script>
