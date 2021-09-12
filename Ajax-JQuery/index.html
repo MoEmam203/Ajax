@@ -54,24 +54,31 @@
                         // username : "", // for Auth
                         // password : "", // for Auth
                         method : "POST" , // Request method
-                        url:"auth.php", // URL , Default the current page
+                        url:"../auth.php", // URL , Default the current page
                         data:{ name:"osama" }, // Data
+                        beforeSend:function(xhr){
+                            console.log(xhr);
+                            console.log("before send")
+                        },
                         success : function(data,status,xhr){
                             // Function to run when request success
                             console.log(data);
                             console.log(status);
                             console.log(xhr);
+                            console.log("When Success")
                         },
                         error: function(xhr,status,error){
                             // Function to run when request failed
                             console.log(xhr);
                             console.log(status);
                             console.log(error); // Error message (Not Found)
+                            console.log("When failed")
                         },
                         complete:function(xhr,status){
                             // function to run when request completed whether success or fail
                             console.log(xhr);
                             console.log(status);
+                            console.log("When Completed");
                         }
                     })
                 })
