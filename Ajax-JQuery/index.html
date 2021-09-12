@@ -8,9 +8,10 @@
     </head>
     <body>
 
-        <button data-page="page-one.html">Page One</button>
-        <button data-page="page-two.html">Page two</button>
+        <!-- <button data-page="page-one.html">Page One</button>
+        <button data-page="page-two.html">Page two</button> -->
 
+        <button>Click to get data</button>
         <div id="show"></div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -18,15 +19,29 @@
         <script>
             $(function(){
                 $("button").click(function (){
-                    $("#show").load($(this).data("page")+" #content",function(resTxt,stTxt,xhr){
-                        // console.log(resTxt)
-                        // console.log(stTxt)
-                        // console.log(xhr)
+                //     $("#show").load($(this).data("page")+" #content",function(resTxt,stTxt,xhr){
+                //         // console.log(resTxt)
+                //         // console.log(stTxt)
+                //         // console.log(xhr)
 
-                        if(stTxt === "success"){
-                            console.log("data loaded")
-                        }
+                //         if(stTxt === "success"){
+                //             console.log("data loaded")
+                //         }
+                //     })
+                
+                    // get method
+                    $.get("../auth.php?name=osama", function(data,status,xhr){
+                            console.log(data)
+                            console.log(status)
+                            console.log(xhr)
                     })
+                    
+                    // post method
+                    // $.post("../auth.php" , { name:"osama" },function(data,status,xhr){
+                    //             console.log(data)
+                    //             console.log(status)
+                    //             console.log(xhr)
+                    // })
                 })
             })
         </script>
